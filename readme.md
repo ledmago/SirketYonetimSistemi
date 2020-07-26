@@ -1,12 +1,13 @@
-Tanım :
+(YapÄ±m AÅŸamasÄ±nda)
+TanÄ±m :
 
-Bu Program şirketlerin departmanlar arasındaki iletişimi kolaylaştırması adına geliştirmesini amaçlamaktadır.
+Bu Program ÅŸirketlerin departmanlar arasÄ±ndaki iletiÅŸimi kolaylaÅŸtÄ±rmasÄ± adÄ±na geliÅŸtirmesini amaÃ§lamaktadÄ±r.
 
-- Departmanlar Arası İletişim
-- Departmanlar Arası Özel Mail
-- Departmanlar Arası Dosya Gönderme
+- Departmanlar ArasÄ± Ä°letiÅŸim
+- Departmanlar ArasÄ± Ã–zel Mail
+- Departmanlar ArasÄ± Dosya GÃ¶nderme
 
-Kullanılanlar :
+KullanÄ±lanlar :
 
 Server : NodeJs
 
