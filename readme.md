@@ -13,3 +13,4 @@ Server : NodeJs
 Client : C# [Hybrit (HTML5)]
 
 <img src="./resim1.png">
+<img src="./resim2.png">
