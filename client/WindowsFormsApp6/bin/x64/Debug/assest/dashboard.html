@@ -1,0 +1,63 @@
+<html>
+<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="author" content="Codrops" />
+		<link rel="stylesheet" type="text/css" href="source/main.css" />
+		<script src="source/jquery.js"></script>
+		<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+		  <script type="text/javascript">
+            $(document).ready(function(){
+			
+			
+			if (localStorage.getItem("ZxO54278963") === null) {window.location = "index.html"}else{} // Local Storage Varsa}
+			try{
+            var socket = io.connect("http://localhost:3000");}catch(err){$("body").css("display", "none");window.location = "587err_net.html";// Sunucuya Bağlanılamadı Hatası Ver
+			} // 3000 portuna connect olduk
+			
+			
+			
+            $("#girisyap").click(function(){ // #mesajgonder'a tıklandığında
+                var kadi = $("#kadi").val(); // #mesajinput'un value'sini al
+                var sifre = $("#sifre").val(); // #nickinput'un valuesini al
+                if (!kadi){
+                return; // mesaj değişkeninin içi boşsa ya da yoksa işlem yapma
+                }
+                socket.emit('baglan',{ //socket.emit ('mesajgonder') aracılığıyla server.js'de socket.on da bizi bekleyen komutu JSON olarak yolladık.
+                    'kadi' : kadi,
+                    'sifre' : sifre // Hem mesajı hem uid yani kullanıcı kimliğini socket.on'a aktardık.
+                });
+              
+            });
+            socket.on("mesajgitti", function(data){ //Server.js deki socket.emitten mesaj'ı client'imize socket.on(mesajgitti) ile aldık.
+                $("#yazismalar").append("<li>"+ data.uid + " diyor ki :"  + data.mesaj + "</li>"); // aldığımız datayı(mesaj ve nicki) append ile #yazismalar divinin içerisine li olarak ekledik.
+            });
+			
+			  socket.on("baglanti_durumu", function(data){
+			  
+			  if(data == "yok")
+			  {
+			  alert("Yanlış Kullanıcı Adı veya Şifre");
+			  }
+			  else
+			  {
+			   localStorage.setItem("ZxO54278963", data);
+				window.location = "fls/dash.html"
+			  }
+			  
+			  
+			  // aldığımız datayı(mesaj ve nicki) append ile #yazismalar divinin içerisine li olarak ekledik.
+            });
+			
+        });
+        </script>
+	</head>
+<body oncontextmenu="return false">
+<div class="login">
+
+</div>
+</body>
+</html>
